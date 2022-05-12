@@ -12,6 +12,8 @@ Stats compute_statistics(const float* numberset, int setlength)
     float current_min = 0;
     
     s.average = 0;
+    s.max= = 0;
+    s.min = 0;
     
     while(setlength--)
     {

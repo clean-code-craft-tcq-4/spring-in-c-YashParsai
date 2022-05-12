@@ -39,11 +39,11 @@ void check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats compu
     {
         if(emailAlertCallCount == 0)
         {
-            alerters[0];
+            alerters;
         }
         if(ledAlertCallCount == 0)
         {
-            alerters[1];
+            alerters+1;
         }
     }
     else

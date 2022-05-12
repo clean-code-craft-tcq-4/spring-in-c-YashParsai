@@ -12,7 +12,7 @@ Stats compute_statistics(const float* numberset, int setlength)
     float current_min = 0;
     
     s.average = 0;
-    s.max= = 0;
+    s.max = 0;
     s.min = 0;
     
     while(setlength--)
@@ -35,7 +35,7 @@ Stats compute_statistics(const float* numberset, int setlength)
 
 void check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats computedStats)
 {
-    if(maxThreshold > computedStats)
+    if(maxThreshold > computedStats.max)
     {
         if(emailAlertCallCount == 0)
         {

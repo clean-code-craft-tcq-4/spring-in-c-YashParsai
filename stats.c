@@ -1,3 +1,4 @@
+#include <math.h>
 #include "stats.h"
 
 /********** Global Variables ***********/
@@ -14,6 +15,15 @@ Stats compute_statistics(const float* numberset, int setlength)
     s.average = 0;
     s.max = 0;
     s.min = 0;
+    
+    if(setlength == 0)
+    {
+        //For empty array send NAN
+        s.average = sqrt(-1);
+        s.max = sqrt(-1);
+        s.min = sqrt(-1);
+        return s;
+    }
     
     while(setlength--)
     {

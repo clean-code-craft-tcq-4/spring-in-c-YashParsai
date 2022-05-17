@@ -12,9 +12,12 @@ TEST_CASE("reports average, minimum and maximum") {
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
     Stats computedStats = compute_statistics(numberset, setlength);
     float epsilon = 0.001f;
-    REQUIRE(abs(computedStats.average - 4.525) > epsilon);
-    REQUIRE(abs(computedStats.max - 8.9) > epsilon);
-    REQUIRE(abs(computedStats.min - 1.5) > epsilon);
+    if(!(REQUIRE(abs(computedStats.average - 4.525) < epsilon)&&
+         REQUIRE(abs(computedStats.max - 8.9) < epsilon)&&
+         REQUIRE(abs(computedStats.min - 1.5) < epsilon) ))
+    {
+        assert(0);
+    }
 }
 
 TEST_CASE("average is NaN for empty array") {
@@ -22,9 +25,12 @@ TEST_CASE("average is NaN for empty array") {
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
     
-    REQUIRE(isnan(computedStats.average));
-    REQUIRE(isnan(computedStats.max));
-    REQUIRE(isnan(computedStats.min));
+    if(!(REQUIRE(isnan(computedStats.average))&&
+    REQUIRE(isnan(computedStats.max))&&
+    REQUIRE(isnan(computedStats.min)) ))
+    {
+        assert(0);
+    }
     //Design the REQUIRE statement here.
     //Use https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
 }

@@ -57,11 +57,11 @@ bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats compu
     {
         if(emailAlertCallCount == 0)
         {
-            *alerters;
+            *alerters[0];
         }
         if(ledAlertCallCount == 0)
         {
-            *(alerters+1);
+            *alerters[1];
         }
         alert_signal = true;
     }

@@ -22,9 +22,9 @@ Stats compute_statistics(const float* numberset, int setlength)
         s.average = sqrt(-1);
         s.max     = sqrt(-1);
         s.min     = sqrt(-1);
+        return s;
     }
-    else
-    {
+
         while(setlength--)
         {
             s.average += numberset[setlength];
@@ -40,7 +40,7 @@ Stats compute_statistics(const float* numberset, int setlength)
 
         s.max = current_max;
         s.min = current_min;
-    }
+    
     return s;
 }
 

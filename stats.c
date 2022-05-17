@@ -9,6 +9,7 @@ int ledAlertCallCount = 0;
 Stats compute_statistics(const float* numberset, int setlength) 
 {
     Stats s;
+    int length = setlength;
     float current_max = 0;
     float current_min = 0;
     
@@ -37,7 +38,8 @@ Stats compute_statistics(const float* numberset, int setlength)
                 current_min = numberset[setlength];
             }
         }
-
+  
+        s.average = s.average/length;
         s.max = current_max;
         s.min = current_min;
     

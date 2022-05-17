@@ -20,28 +20,30 @@ Stats compute_statistics(const float* numberset, int setlength)
     {
         //For empty array send NAN
         s.average = sqrt(-1);
-        s.max = sqrt(-1);
-        s.min = sqrt(-1);
-        return s;
+        s.max     = sqrt(-1);
+        s.min     = sqrt(-1);
     }
-    
-    while(setlength--)
+    else
     {
-        s.average += numberset[setlength];
-        if(current_max < numberset[setlength])
+        while(setlength--)
         {
-            current_max = numberset[setlength];
+            s.average += numberset[setlength];
+            if(current_max < numberset[setlength])
+            {
+                current_max = numberset[setlength];
+            }
+            if(current_min > numberset[setlength])
+            {
+                current_min = numberset[setlength];
+            }
         }
-        if(current_min > numberset[setlength])
-        {
-            current_min = numberset[setlength];
-        }
+
+        s.max = current_max;
+        s.min = current_min;
     }
-    
-    s.max = current_max;
-    s.min = current_min;
     return s;
 }
+
 
 bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats computedStats)
 {

@@ -13,8 +13,8 @@ Stats compute_statistics(const float* numberset, int setlength)
     float current_min = 0;
     
     s.average = 0;
-    s.max = 0;
-    s.min = 0;
+    s.max     = 0;
+    s.min     = 0;
     
     if(setlength == 0)
     {
@@ -48,6 +48,7 @@ Stats compute_statistics(const float* numberset, int setlength)
 bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats computedStats)
 {
     bool alert_signal = false;
+    
     if(maxThreshold > computedStats.max)
     {
         if(emailAlertCallCount == 0)
@@ -63,7 +64,7 @@ bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats compu
     else
     {
         emailAlertCallCount = 0;
-        ledAlertCallCount = 0;
+        ledAlertCallCount   = 0;
     }
     return alert_signal;
 }

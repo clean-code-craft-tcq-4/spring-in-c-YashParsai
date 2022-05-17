@@ -35,7 +35,7 @@ Stats compute_statistics(const float* numberset, int setlength)
 
 bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats computedStats)
 {
-    bool alert_signal = FALSE;
+    bool alert_signal = false;
     if(maxThreshold > computedStats.max)
     {
         if(emailAlertCallCount == 0)
@@ -46,7 +46,7 @@ bool check_and_alert(float maxThreshold, alerter_funcptr alerters[], Stats compu
         {
             alerters+1;
         }
-        alert_signal = TRUE;
+        alert_signal = true;
     }
     else
     {

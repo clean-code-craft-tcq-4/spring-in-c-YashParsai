@@ -10,8 +10,8 @@ Stats compute_statistics(const float* numberset, int setlength)
 {
     Stats s;
     int length = setlength;
-    float current_max = 0;
-    float current_min = 0;
+    float current_max = numberset[0];
+    float current_min = numberset[0];
     
     s.average = 0;
     s.max     = 0;
